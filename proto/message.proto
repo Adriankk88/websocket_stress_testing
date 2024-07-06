@@ -1,0 +1,33 @@
+syntax = "proto2";
+
+package example;
+
+
+message AttachSession {
+  required string session_id = 1;
+  optional string action = 2;
+}
+
+message UserRequest {
+  required string session_id = 1;
+  optional string _messageId = 2;
+  optional string action = 3;
+
+  message RequestParam {
+    optional string param = 1;
+  }
+
+  repeated RequestParam param = 4;
+}
+
+
+message ServerResponse {
+  required int32 code = 1;
+  optional string msg = 2;
+
+  message ResponseDate {
+    optional string data = 1;
+  }
+
+  repeated ResponseDate data = 3;
+}
